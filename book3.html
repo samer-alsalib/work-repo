@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Freehand&family=Gabarito&family=Hedvig+Letters+Serif&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="style.css">
+        <title>Book Inventory Site - Book 3</title>
+    </head>
+    <body>
+        <header>
+            <div id="name-logo-c">
+                <div id="site-name-bg">
+                    <h1 id="site-name">The Book Inventory System</h1>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <article id="main-article">
+                <div id="book-name-c">
+                    <h2 id="book-name">Frankenstein</h2>
+                </div>
+                
+                <div id="book-big-image-c">
+                    <img src="https://i.postimg.cc/2jgx4CFf/Frankenstein-book-cover.jpg" alt="book-big-image" id="book-big-image" />
+                </div>
+
+                <div id="book-author-c">
+                    <h3 id="book-author">Mary Shelley</h3>
+                </div>
+
+                <div id="book-price-c">
+                    <h4 id="book-price">41.8</h4>
+                </div>
+
+                <div id="book-description-c">
+                    <p id="book-description">A book tells the story of Victor Frankenstein, a young scientist who creates a sapient creature in an unorthodox scientific experiment.</p>
+                </div>
+
+                <div id="book-add-c">
+                    <button id="book-add" class="item-add"></button>
+                </div>
+
+
+                <aside id="cart-c">
+                    <div id="cart-show-hide">
+                        <label id="show-hide-label">
+                            <input type="checkbox" name="show-hide" id="show-hide-check" />
+                            <span id="show-hide-span" data-ul-items-num="0"></span>
+                        </label>
+                    </div>
+    
+                    <div id="cart">
+                        <h2 id="cart-h">Your Reading List:</h2>
+        
+                        <div id="cart-items-c">
+                            <ul id="cart-items-ul">
+                                
+                            </ul>
+                        </div>
+    
+                        <div id="cart-details">
+                            <button id="cart-clear-b">clear</button>
+                            
+                            <button id="cart-purchase-b">Make a Purchase</button>
+    
+                            <p id="cart-total-price">0</p>
+                        </div>
+                    </div>
+                </aside>
+            </article>
+        </main>
+    </body>
+
+    <script src="script3.js"></script>
+</html>

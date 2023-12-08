@@ -1,17 +1,19 @@
 window.onload = function () {
-    let itemsC = document.querySelectorAll(".items-c");
+    let InputSearch = document.querySelector("#input-search");
     let catigories = document.querySelectorAll(".catigories");
+    let itemsC = document.querySelectorAll(".items-c");
+    let items = document.querySelectorAll(".items");
     let itemAdds = document.querySelectorAll(".item-add");
     let cartC = document.querySelector("#cart-c");
     let cartItemsUl = document.querySelector("#cart-items-ul");
     let cartItemsUlLis = document.querySelectorAll("#cart-items-ul li");
     let cartTotalPrice = document.querySelector("#cart-total-price");
     let cartClear = document.querySelector("#cart-clear-b");
+    let cartPurchase = document.querySelector("#cart-purchase-b");
     let cartShowHide = document.querySelector("#cart-show-hide");
     let showHideSpan = document.querySelector("#show-hide-span");
     let showHideCheck = document.querySelector("#show-hide-check");
-    let totalPrice = 0;
-    let cartItems;
+    let totalPrice = cartItemsUl.children.length;
 
 
     if (showHideCheck.checked) {
@@ -22,6 +24,9 @@ window.onload = function () {
         item.style.display = "none";
     });
     itemsC[0].style.display = "block";
+
+    cartItemsUl.innerHTML = sessionStorage.getItem("ulItems", cartItemsUl.innerHTML);
+    showHideSpan.dataset.ulItemsNum = cartItemsUl.children.length;
 
     catigories[0].classList.add("active-catigory");
     catigories.forEach((catigory) => {
@@ -40,6 +45,7 @@ window.onload = function () {
         };
     });
 
+
     itemAdds.forEach((itemAdd) => {
         itemAdd.onclick = () => {
             let newLi = document.createElement("li");
@@ -54,6 +60,8 @@ window.onload = function () {
 
             totalPrice += +itemAdd.parentElement.parentElement.querySelector(".item-price-c").querySelector(".item-price").innerText;
             cartTotalPrice.innerText = Math.round((totalPrice + Number.EPSILON) * 100)/100;
+
+            sessionStorage.setItem("ulItems", cartItemsUl.innerHTML);
 
             if (!showHideCheck.checked && cartItemsUl.children.length <= 1) {
                 showHideCheck.click();
@@ -73,25 +81,24 @@ window.onload = function () {
     };
 
     cartClear.onclick = () => {
-        sessionStorage.setItem("ulItems", cartItemsUl.innerHTML);
-        window.location.href = "checkout.html";
-
         cartItemsUl.innerHTML = "";
-        cartTotalPrice.innerText = 0;
         totalPrice = 0;
+        cartTotalPrice.innerText = totalPrice;
         showHideSpan.dataset.ulItemsNum = 0;
+        sessionStorage.clear();
     };
+
+    cartPurchase.onclick = () => {
+        window.location.href = "checkout.html";
+    };
+
+    InputSearch.addEventListener("input", (e) => {
+        items.forEach((item) => {
+            if (item.children[1].innerText.toLowerCase().includes(e.target.value.toLowerCase()) || item.children[2].innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
+                item.classList.toggle("hidden", false);
+            } else {
+                item.classList.toggle("hidden", true);
+            }
+        });
+    });
 };
-
-
-
-
-
-
-/* 
-    Keeper of the Light
-    Earth Spirit
-    Legion Commander
-    Tormented Soul
-    Luna
-*/
