@@ -124,6 +124,7 @@ main {
     width: 75vw;
     border: 2px dashed black;
     border-collapse: collapse;
+    text-align: center;
 }
 #names-table * {
     border: 2px dashed black;
